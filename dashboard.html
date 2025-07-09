@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLA Dashboard Mock-up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-active {
+            border-color: #4f46e5;
+            color: #4f46e5;
+            background-color: #eef2ff;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <!-- Global Header -->
+        <header class="mb-6 md:flex justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900">SLA Operations & Executive Dashboard</h1>
+                <p class="text-sm text-gray-500 mt-1">Last refreshed: July 9, 2025 12:45 PM</p>
+            </div>
+            <div class="mt-4 md:mt-0">
+                <label for="timeframe" class="sr-only">Select Timeframe</label>
+                <select id="timeframe" class="w-full md:w-auto bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option>Last 7 Days</option>
+                    <option>Last 30 Days</option>
+                    <option>Last Quarter</option>
+                    <option>All Time</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- Tab Navigation -->
+        <div class="mb-6">
+            <div class="border-b border-gray-200">
+                <nav class="-mb-px flex space-x-6" aria-label="Tabs">
+                    <button id="tab-exec" class="tab-active whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm">
+                        Executive Summary
+                    </button>
+                    <button id="tab-ops" class="text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm">
+                        Operational View
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Tab Content -->
+        <div>
+            <!-- Executive Summary Tab -->
+            <div id="content-exec">
+                <div class="space-y-8">
+                    <!-- Row 1: KPI Widgets -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <h3 class="text-sm font-medium text-gray-500">Total Downtime</h3>
+                            <p class="mt-2 text-3xl font-bold text-gray-900">42.5 Hours</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <h3 class="text-sm font-medium text-gray-500">Avg. Downtime per Incident</h3>
+                            <p class="mt-2 text-3xl font-bold text-gray-900">18 min</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <h3 class="text-sm font-medium text-gray-500">Total True Positive Incidents</h3>
+                            <p class="mt-2 text-3xl font-bold text-gray-900">142</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <h3 class="text-sm font-medium text-red-600">% of Customers Impacted</h3>
+                            <p class="mt-2 text-3xl font-bold text-red-600">15.2%</p>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Core Visualizations -->
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                        <div class="lg:col-span-3 bg-white p-6 rounded-lg shadow-sm">
+                            <h3 class="font-semibold text-gray-900 mb-4">Downtime Trend Over Time (Hours)</h3>
+                            <div class="h-64">
+                                <!-- SVG Line Chart Placeholder -->
+                                <svg width="100%" height="100%" viewBox="0 0 400 200" class="font-sans text-xs">
+                                    <line x1="30" y1="180" x2="380" y2="180" stroke="#d1d5db"></line>
+                                    <line x1="30" y1="20" x2="30" y2="180" stroke="#d1d5db"></line>
+                                    <polyline points="50,150 110,120 170,140 230,90 290,110 350,60" fill="none" stroke="#4f46e5" stroke-width="2"></polyline>
+                                    <text x="50" y="195" text-anchor="middle">Mon</text>
+                                    <text x="110" y="195" text-anchor="middle">Tue</text>
+                                    <text x="170" y="195" text-anchor="middle">Wed</text>
+                                    <text x="230" y="195" text-anchor="middle">Thu</text>
+                                    <text x="290" y="195" text-anchor="middle">Fri</text>
+                                    <text x="350" y="195" text-anchor="middle">Sat</text>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-sm">
+                            <h3 class="font-semibold text-gray-900 mb-4">Customer Impact Ratio</h3>
+                             <div class="h-64 flex items-center justify-center">
+                                <!-- SVG Pie Chart Placeholder -->
+                                <svg width="100%" height="100%" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="40" fill="#dcfce7"></circle>
+                                    <path d="M50 50 L50 10 A40 40 0 0 1 84.14 25.86 Z" fill="#fee2e2"></path>
+                                    <text x="75" y="35" font-size="8" fill="#ef4444">15% Impacted</text>
+                                    <text x="30" y="65" font-size="8" fill="#16a34a">85% Not Impacted</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Ownership & Customer Impact -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <h3 class="font-semibold text-gray-900 mb-4">Top 5 Customers by Downtime</h3>
+                            <div class="space-y-4">
+                                <!-- Horizontal Bar Chart Placeholder -->
+                                <div class="w-full"><div class="bg-red-200 h-8 rounded" style="width: 95%"><span class="text-xs pl-2 text-red-800">Customer-A (3.8h)</span></div></div>
+                                <div class="w-full"><div class="bg-orange-200 h-8 rounded" style="width: 80%"><span class="text-xs pl-2 text-orange-800">Customer-B (3.2h)</span></div></div>
+                                <div class="w-full"><div class="bg-orange-200 h-8 rounded" style="width: 75%"><span class="text-xs pl-2 text-orange-800">Customer-C (3.0h)</span></div></div>
+                                <div class="w-full"><div class="bg-sky-200 h-8 rounded" style="width: 50%"><span class="text-xs pl-2 text-sky-800">Customer-D (2.0h)</span></div></div>
+                                <div class="w-full"><div class="bg-sky-200 h-8 rounded" style="width: 45%"><span class="text-xs pl-2 text-sky-800">Customer-E (1.8h)</span></div></div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <h3 class="font-semibold text-gray-900 mb-4">Incident Ownership</h3>
+                            <div class="h-64 flex justify-around items-end">
+                                <!-- Vertical Bar Chart Placeholder -->
+                                <div class="w-12"><div class="bg-indigo-400 rounded-t" style="height: 80%"><p class="text-center text-xs text-white pt-1">45</p></div><p class="text-center text-xs mt-1">Team Alpha</p></div>
+                                <div class="w-12"><div class="bg-indigo-400 rounded-t" style="height: 60%"><p class="text-center text-xs text-white pt-1">32</p></div><p class="text-center text-xs mt-1">Team Bravo</p></div>
+                                <div class="w-12"><div class="bg-indigo-400 rounded-t" style="height: 90%"><p class="text-center text-xs text-white pt-1">51</p></div><p class="text-center text-xs mt-1">Team Charlie</p></div>
+                                <div class="w-12"><div class="bg-indigo-400 rounded-t" style="height: 50%"><p class="text-center text-xs text-white pt-1">24</p></div><p class="text-center text-xs mt-1">Team Delta</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Operational View Tab -->
+            <div id="content-ops" class="hidden">
+                 <div class="space-y-8">
+                    <!-- Row 1: Actionable Metrics -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <h3 class="text-sm font-medium text-yellow-600">Incidents Awaiting Validation</h3>
+                            <p class="mt-2 text-3xl font-bold text-yellow-600">37</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <h3 class="text-sm font-medium text-gray-500">My Open Incidents</h3>
+                            <p class="mt-2 text-3xl font-bold text-gray-900">8</p>
+                        </div>
+                        <div class="bg-indigo-600 p-6 rounded-lg shadow-sm flex items-center justify-center cursor-pointer hover:bg-indigo-700">
+                           <button class="text-white font-semibold text-lg">Go to Validation Page</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 2: Detailed Incident Table -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="md:flex justify-between items-center mb-4">
+                            <h3 class="font-semibold text-gray-900">Detailed Incident List</h3>
+                            <div class="flex space-x-2 mt-4 md:mt-0">
+                                <select class="w-full md:w-auto bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-8 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500">
+                                    <option>Filter by Owner</option>
+                                    <option>Team Alpha</option>
+                                    <option>Team Bravo</option>
+                                </select>
+                                 <select class="w-full md:w-auto bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-8 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500">
+                                    <option>Filter by Status</option>
+                                    <option>Validated</option>
+                                    <option>Unvalidated</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Monitor ID</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Owner</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Datetime</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duration (sec)</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Validator</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200 text-sm">
+                                    <tr class="bg-red-100 text-red-900">
+                                        <td class="px-6 py-4 whitespace-nowrap">MON-12345</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Customer-A</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Team Charlie</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">2025-07-09 11:30</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">1250</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Validated</span></td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Adi</td>
+                                    </tr>
+                                    <tr class="bg-orange-100 text-orange-900">
+                                        <td class="px-6 py-4 whitespace-nowrap">MON-12346</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Customer-B</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Team Alpha</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">2025-07-09 10:15</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">720</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Validated</span></td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Adi</td>
+                                    </tr>
+                                     <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">MON-12347</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Customer-F</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Team Bravo</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">2025-07-09 09:05</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">350</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Unvalidated</span></td>
+                                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                                    </tr>
+                                    <tr class="bg-sky-100 text-sky-900">
+                                        <td class="px-6 py-4 whitespace-nowrap">MON-12348</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Customer-D</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Team Charlie</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">2025-07-09 08:40</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">580</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Validated</span></td>
+                                        <td class="px-6 py-4 whitespace-nowrap">Amesh</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabExec = document.getElementById('tab-exec');
+        const tabOps = document.getElementById('tab-ops');
+        const contentExec = document.getElementById('content-exec');
+        const contentOps = document.getElementById('content-ops');
+
+        tabExec.addEventListener('click', () => {
+            // Activate Exec tab
+            tabExec.classList.add('tab-active');
+            tabOps.classList.remove('tab-active', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+            tabOps.classList.add('text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+
+
+            // Show Exec content
+            contentExec.classList.remove('hidden');
+            contentOps.classList.add('hidden');
+        });
+
+        tabOps.addEventListener('click', () => {
+            // Activate Ops tab
+            tabOps.classList.add('tab-active');
+            tabExec.classList.remove('tab-active');
+            tabExec.classList.add('text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+
+            // Show Ops content
+            contentOps.classList.remove('hidden');
+            contentExec.classList.add('hidden');
+        });
+    </script>
+
+</body>
+</html>
